@@ -43,15 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsociadoValidators.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Cobro.cs" />
     <Compile Include="Cuota.cs" />
     <Compile Include="Donacion.cs" />
-    <Compile Include="Principal.cs" />
-    <Compile Include="Proceso.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="MenuServices.cs" />
+    <Compile Include="MenuValidator.cs" />
+    <Compile Include="GlobalValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sangre.cs" />
-    <Compile Include="Socios.cs" />
+    <Compile Include="Asociado.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

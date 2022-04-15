@@ -17,20 +17,25 @@ namespace CirculoDeSangre
 {
     public class Categoria : Sangre
     {
+        //Se agrega una lista de tipos y montos por index de cliente.
+        public static List<Categoria> Cate = new List<Categoria>(); 
+
         public string Tipo { get; set; }
         public double CuotaMonto { get; set; }
-        public static List<Categoria> Cate = new List<Categoria>(); //Se agrega una lista de tipos y montos por index de cliente.
-        public void Calculo(string nacimiento, char enfermedad, char medicacionperm)
+
+        //En este metodo lo que hacemos es calcular la categoria del usuario.
+        //Basicamente restamos la fecha actual y la fecha de nacimiento dividiendolo por 365.
+        //Luego lo guardamos en una lista.
+        public void CalculoCategoria(string nacimiento, char enfermedad, char medicacionperm)
         {
-            DateTime hoy = DateTime.Now; //Se calcula la edad extrayendo la fecha actual de la PC.
             DateTime tiempo = new DateTime(1800, 01, 01);
             string cat = "";
             double monto;
 
-            if (DateTime.TryParse(nacimiento, out tiempo)) //Con este if verificamos si el usuario ingreso un dato correcto
+            //Con este if verificamos si el usuario ingreso un dato correcto
+            if (DateTime.TryParse(nacimiento, out tiempo)) 
             {
-
-                TimeSpan diasEnteros = hoy.Subtract(tiempo);
+                TimeSpan diasEnteros = DateTime.Now.Subtract(tiempo);
 
                 int edad = diasEnteros.Days / 365;
 
@@ -44,6 +49,7 @@ namespace CirculoDeSangre
                     cat = "Pasivo";
                     monto = 78740.25;
                 }
+                //Agregamos este else para considerar pasivo a alguno que tenga minimo 1 de las dos condiciones.
                 else
                 {
                     cat = "Pasivo";

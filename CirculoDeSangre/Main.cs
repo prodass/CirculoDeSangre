@@ -8,9 +8,9 @@ namespace CirculoDeSangre
 {
     internal class Principal
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Proceso.Menu();
+            MenuServices.Menu();
 
             Console.ReadKey();
         }
