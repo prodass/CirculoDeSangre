@@ -1,3 +1,3 @@
 # CirculoDeSangre
 
-Documentacion: [Documentacion.pdf](https://github.com/prodass/CirculoDeSangre/files/8498767/Documentacion.pdf)
+Documentacion asociada al proyecto: [DocumentacionRodasPablo.pdf](https://github.com/prodass/CirculoDeSangre/files/8541274/DocumentacionRodasPablo.pdf)
