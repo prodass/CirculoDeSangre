@@ -73,12 +73,14 @@ namespace CirculoDeSangre
                 {
                     Console.Write("+ Ingrese correctamente la fecha de nacimiento: ");
                     nacimiento = Console.ReadLine();
-                } //Validacion
+                }
 
                 naci = nacimiento.Split('\u002D');
+
                 dia = Int32.Parse(naci[0]);
                 mes = Int32.Parse(naci[1]);
                 ano = Int32.Parse(naci[2]);
+                
                 if (dia < 01 || dia > 31)
                 {
                     Console.Write("+ El dia esta incorrecto, ingrese nuevamente su fecha (dd-mm-aaaa): ");

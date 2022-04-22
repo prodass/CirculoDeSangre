@@ -9,6 +9,7 @@ using System.Threading.Tasks;
  * A, B, AB y O.
  */
 
+
 namespace CirculoDeSangre
 {
     public class Sangre
