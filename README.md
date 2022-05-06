@@ -51,7 +51,8 @@ El proyecto estará compuesto por cinco Iteraciones las cuales estarán definida
 ![DiagramaCU](https://user-images.githubusercontent.com/99101418/166554689-7c3f95e8-1dce-4c0c-b2df-a77538a64444.png)
 
 ## Diagrama de Clases:
-![DiagramaClases](https://user-images.githubusercontent.com/99101418/166555432-3d531d00-39bb-4809-b747-5a596c05b94e.png)
+![DiagramaClases](https://user-images.githubusercontent.com/99101418/167223336-ba55e53b-dda0-4c03-94ec-2cdf105cac8c.png)
+
 
 # Iteracion 1:
 En esta iteración comenzamos con el alta del asociado, almacenando sus datos y calculando automáticamente la categoría a la que pertenece manteniéndola actualizada y mostrar la totalidad de los datos del mismo.
@@ -80,14 +81,14 @@ En esta iteración se espera que el Banco envíe la petición la cual debe indic
 ***Descripcion 1:***
 ![Descripcion1](https://user-images.githubusercontent.com/99101418/166558962-7c7ba19e-e115-4be1-86da-a2e2945e0b44.png)
 
-***Descripcion 1:***
-![Descripcion2](https://user-images.githubusercontent.com/99101418/166556171-9ec6c6fe-c9a4-4ef5-9a76-45da617ffd3e.png)
+***Descripcion 2:***
+![Descripcion2](https://user-images.githubusercontent.com/99101418/167223295-f24d79d3-26d1-488e-b090-4c78d800b163.png)
 
 
 # Links asociados:
 
 [- Acceder a documentacion azure -](https://dev.azure.com/prodas/Proyecto%20-%20Circulo%20de%20Sangre)
 
-[- Descargar pdf de la documentacion -](https://github.com/prodass/CirculoDeSangre/files/8613930/Documentacion.pdf)
+[- Descargar pdf de la documentacion -](https://github.com/prodass/CirculoDeSangre/files/8643849/Documentacion.pdf)
 
 
