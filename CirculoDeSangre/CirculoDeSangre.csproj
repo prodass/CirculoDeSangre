@@ -52,6 +52,8 @@
     <Compile Include="MenuServices.cs" />
     <Compile Include="MenuValidator.cs" />
     <Compile Include="GlobalValidator.cs" />
+    <Compile Include="Peticion.cs" />
+    <Compile Include="PeticionesValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sangre.cs" />
     <Compile Include="Asociado.cs" />

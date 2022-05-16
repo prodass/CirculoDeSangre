@@ -57,9 +57,10 @@ namespace CirculoDeSangre
                 }
 
                 Cate.Add(new Categoria() { Tipo = cat, CuotaMonto = monto });
-                Console.WriteLine("+ Se le ha asignado a este asociado la categoria de: {0}.\n", cat);
+                
             }
 
         }
+       
     }
 }

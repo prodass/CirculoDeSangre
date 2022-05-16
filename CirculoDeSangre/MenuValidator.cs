@@ -18,7 +18,7 @@ namespace CirculoDeSangre
                 valor = Console.ReadLine();
             }
             ingreso = Int32.Parse(valor);
-            while (ingreso < 0 || ingreso > 2)
+            while (ingreso < 0 || ingreso > 3)
             {
                 Console.Write("+ Ingrese nuevamente un valor numerico correcto: ");
                 ingreso = Int32.Parse(Console.ReadLine());
