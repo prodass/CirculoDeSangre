@@ -15,7 +15,7 @@ namespace CirculoDeSangre
             int ingreso;
             Console.Clear();
             Console.WriteLine("\t- Circulo de Sangre -");
-            Console.WriteLine("--------------------------");
+            Console.WriteLine("\n--------------------------");
             Console.WriteLine("- 1. Alta de Asociado.");
             Console.WriteLine("- 2. Lista de Asociados.");
             Console.WriteLine("- 3. Gestionar Peticion.");
@@ -44,7 +44,6 @@ namespace CirculoDeSangre
                     break;
                 case 2:
                     Console.WriteLine("\t - Lista de asociados -");
-                    Asociado.CargarAsociados();
                     Asociado.MostrarAsociados();
                     Volver();
                     break;
@@ -55,7 +54,7 @@ namespace CirculoDeSangre
                     Console.WriteLine("- 1. Mostrar Peticiones.");
                     Console.WriteLine("- 2. Mostrar lista de prioridad.");
                     Console.WriteLine("- 3. Registrar nueva peticion.");
-                    Console.WriteLine("- 0. Salir.");
+                    Console.WriteLine("- 0. Volver.");
                     Console.WriteLine("--------------------------");
 
                     Console.Write("+ Ingrese su respuesta: ");
@@ -86,7 +85,7 @@ namespace CirculoDeSangre
 
                         case 0:
                             Console.Clear();
-                            Console.Write("Usted ha salido!");
+                            Menu();
                             break;
 
                         default:
@@ -107,7 +106,7 @@ namespace CirculoDeSangre
             string respuestaT;
             char respuesta;
 
-            Console.Write("\n+ Desea regresar al menu? (S/n): ");
+            Console.Write("+ Desea regresar al menu? (S/n): ");
             respuestaT = Console.ReadLine();
             respuesta = GlobalValidator.ValidacionSn(respuestaT);
 

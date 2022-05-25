@@ -10,9 +10,9 @@ namespace CirculoDeSangre
     {
         public static List<Peticion> Peticiones = new List<Peticion>()
         {
-            new Peticion() {Fecha = "15/05/2022" , CantDonantes = 1 , FechaLimite = "18/05/2022"}
+            new Peticion() {FechaPeticion = "15/05/2022" , CantDonantes = 1 , FechaLimite = "18/05/2022"}
         };
-        public string Fecha { get; set; }
+        public string FechaPeticion { get; set; }
         public int CantDonantes { get; set; }
         public string FechaLimite { get; set; }
 
@@ -44,7 +44,7 @@ namespace CirculoDeSangre
             {
 
                 Console.WriteLine("\n+ El registro se ha realizado correctamente!");
-                Peticiones.Add(new Peticion { Fecha = DateTime.Now.ToString("dd/MM/yyyy"), CantDonantes = cantidad, FechaLimite = fechaLimite });
+                Peticiones.Add(new Peticion { FechaPeticion = DateTime.Now.ToString("dd/MM/yyyy"), CantDonantes = cantidad, FechaLimite = fechaLimite });
 
             }
             else

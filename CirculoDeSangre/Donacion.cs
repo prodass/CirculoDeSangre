@@ -9,6 +9,8 @@ namespace CirculoDeSangre
     public class Donacion : Peticion
     {
         public static List<Donacion> Donaciones = new List<Donacion>();
+        
+
         public string Fecha { get; set; }
         public string Estado { get; set; }
         public string AsociadoID { get; set; }
@@ -16,14 +18,14 @@ namespace CirculoDeSangre
 
         public static void ListaDePrioridad()
         {
-            Asociado.CargarAsociados();
+            
             Console.WriteLine("\n-------------------------------");
-            Console.WriteLine(" ID\tDNI\t\tAsociado \tDonaciones-\n");
-            for (int i = 0; i < Asociado.listaAsociado.Count; i++)
+            //Console.WriteLine(" ID |   DNI    | Asociado | \tGrupo sanguineo\tDonaciones-\n");
+            for (int i = 0; i < Asociado.listaAsociado.Count(); i++)
             {
                 if(Categoria.Cate[i].Tipo == "Activo")
                 {
-                    Console.WriteLine($" {i}.\t{Asociado.listaAsociado[i].DNI}\t{Asociado.listaAsociado[i].Nombre} {Asociado.listaAsociado[i].Apellido}\t");
+                    Console.WriteLine($"+ Asociado ID:{i}, {Asociado.listaAsociado[i].Nombre} {Asociado.listaAsociado[i].Apellido} - DNI: {Asociado.listaAsociado[i].DNI} - grupo sanguineo: {Asociado.listaAsociado[i].GrupoSanguineo}");
                 }
             }
             Console.WriteLine("-------------------------------\n");

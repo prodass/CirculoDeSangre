@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace CirculoDeSangre
 {
     public class Sangre : Donacion
-    {
+    {   
         public string GrupoSanguineo { get; set; }
     }
 }

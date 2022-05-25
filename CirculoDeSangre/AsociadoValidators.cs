@@ -179,7 +179,7 @@ namespace CirculoDeSangre
                     medicacionNombre = Console.ReadLine();
                 }
             }
-            else { medicacionNombre = "No toma."; }
+            else { medicacionNombre = "No toma"; }
 
             return medicacionNombre;
         }
@@ -209,9 +209,7 @@ namespace CirculoDeSangre
                     Console.WriteLine("+ El dni ingresado coincide con el del asociado/a {0} {1}!", Asociado.listaAsociado[i].Nombre, Asociado.listaAsociado[i].Apellido);
                     return true;
                 }
-
             }
-
             return false;
         }
     }

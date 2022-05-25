@@ -12,9 +12,8 @@ namespace CirculoDeSangre
     {
         static void Main()
         {
-            Asociado.CargarAsociados();
+            //Asociado.CargarAsociados();
             MenuServices.Menu();
-
             Console.ReadKey();
         }
     }
