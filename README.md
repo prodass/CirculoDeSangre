@@ -10,7 +10,7 @@
   *	El sistema debe mantener actualizado los cambios de categorías diariamente.
   *	El sistema debe mostrar la totalidad de los datos de los asociados.
   *	El sistema debe registrar las peticiones de donación emitidas por el Banco de Sangre.
-  *	El sistema debe permitir buscar lista de asociados que cumplan con condiciones y estén en la categoría activo para donar.
+  *	El sistema debe permitir mostrar la lista de asociados que cumplan con condiciones y estén en la categoría activo para donar.
   *	El sistema debe permitir elegir un turno de donación dentro de un rango de fechas establecidas.
   *	El sistema debe notificar al asociado cuando se confirme el turno.
   *	El sistema debe registrar cada donación mediante los informes que envía el Banco. 
@@ -32,7 +32,7 @@ El proyecto estará compuesto por cinco Iteraciones las cuales estarán definida
 
 ### Iteración 2: (1 semana)
   * El sistema debe registrar las peticiones de donación emitidas por el Banco de Sangre.
-  * El sistema debe permitir buscar lista de asociados que cumplan con condiciones y estén en la categoría activo para donar.
+  * El sistema debe permitir mostrar la lista de asociados que cumplan con condiciones y estén en la categoría activo para donar.
   * El sistema debe permitir elegir un turno de donación dentro de un rango de fechas establecidas.
 
 ### Iteración 3: (1 semana)
@@ -59,9 +59,11 @@ En esta iteración comenzamos con el alta del asociado, almacenando sus datos y 
 
 ## Descripcion de Casos de Uso:
  ***Descripcion 1:***
+
 ![Descripcion1](https://user-images.githubusercontent.com/99101418/166555559-ed58341e-22f9-4144-baff-24f57bd60299.png)
 
 ***Descripcion 2:***
+
 ![Descripcion2](https://user-images.githubusercontent.com/99101418/166555594-18d45b3c-48b7-416f-ad82-6c7c4cf69c39.png)
 
 ## Diagrama de Interfaces:
@@ -79,16 +81,32 @@ En esta iteración se espera que el Banco envíe la petición la cual debe indic
 
 ## Descripcion de Casos de Uso:
 ***Descripcion 1:***
+
 ![Descripcion1](https://user-images.githubusercontent.com/99101418/166558962-7c7ba19e-e115-4be1-86da-a2e2945e0b44.png)
 
 ***Descripcion 2:***
+
 ![Descripcion2](https://user-images.githubusercontent.com/99101418/167223295-f24d79d3-26d1-488e-b090-4c78d800b163.png)
+
+## Prototipos:
+***Prototipo 1:***
+
+![Prototipo1](https://user-images.githubusercontent.com/99101418/169413177-d4b52e32-b0e8-42fb-b11d-c3a0558595b4.png)
+
+***Prototipo 2:***
+
+![Prototipo2](https://user-images.githubusercontent.com/99101418/169413214-52b14e22-e26a-4aa3-aff3-08843ededbed.png)
+
+***Prototipo 3:***
+
+![Prototipo3](https://user-images.githubusercontent.com/99101418/169413269-01509847-b90a-474f-b641-51479c33b182.png)
+
+
 
 
 # Links asociados:
 
 [- Acceder a documentacion azure -](https://dev.azure.com/prodas/Proyecto%20-%20Circulo%20de%20Sangre)
 
-[- Descargar pdf de la documentacion -](https://github.com/prodass/CirculoDeSangre/files/8643849/Documentacion.pdf)
-
+[- Descargar pdf de la documentacion -](https://github.com/prodass/CirculoDeSangre/files/8734508/Documentacion.pdf)
 
