@@ -26,7 +26,7 @@ namespace CirculoDeSangre
 
             return cantidad;
         }
-        public static int CantidadPetVal(int cantidad, string grupoSanguineo)
+        public static int CantidadPetVal(int cantidad, string grupoSanguineo, string fecha)
         {
             int cont=0;
             for (int i = 0; i < Asociado.listaAsociado.Count; i++)
@@ -35,18 +35,30 @@ namespace CirculoDeSangre
                 {
                     if(Asociado.listaAsociado[i].GrupoSanguineo == grupoSanguineo)
                     {
-                        cont++;
+                        if (Asociado.listaAsociado[i].NumeroDonaciones < 2)
+                        {
+                            Asociado.listaAsociado[i].UltimaDonacion = fecha;
+                            Asociado.listaAsociado[i].NumeroDonaciones += 1;
+                            cont++;
+                        }
                     }
                 }
             }
             while (cont < cantidad)
             {
-                Console.WriteLine($"\n+ Se ha ingresado una cantidad de sangre factor '{grupoSanguineo}' superior a la disponible, hay {cont} asociado{@"\s"} disponible{@"\s"}!\n+ Se ha asignado automaticamente los asociados disponibles.\n");
-                cantidad = cont;
+                if (cont == 0)
+                {
+                    Console.WriteLine($"\n+ Para el tipo de sangre solicitado ({grupoSanguineo}), no tenemos ningun asociado disponible.");
+                }
+                else
+                {
+                    Console.WriteLine($"\n+ Se ha ingresado una cantidad de sangre factor '{grupoSanguineo}' superior a la disponible, hay {cont} asociado{@"\s"} disponible{@"\s"}!\n+ Se ha asignado automaticamente los asociados disponibles.\n");
+                    cantidad = cont;
+                }
+                
             }
             return cantidad;
-        }
-        
+        } 
         public static string FechaLimiteVal(string fechaLimite)
         {
             int dia, mes, ano;
@@ -98,12 +110,29 @@ namespace CirculoDeSangre
 
             while (res < -31 || res > 0)
             {
-                Console.Write("+ Usted ingreso una fecha mayor a un mes de la establecida, por favor, ingrese una nueva: ");
+                Console.Write("+ Usted debe ingresar una fecha maxima a un mes, por favor, ingrese una nueva: ");
                 fechaLimite = Console.ReadLine();
+                
                 res = (DateTime.Today - DateTime.Parse(fechaLimite)).Days;
             }
 
             return fechaLimite;
+        }
+        public static char GrupoSanguineoVal(string grupoSanguineo)
+        {
+            
+            while (!Regex.Match(grupoSanguineo, @"^[A-Z]{1}$|^[A-Z]{2}$").Success) // Validacion de formato.
+            {
+                Console.Write("+ Ingrese nuevamente su grupo sanguineo: ");
+                grupoSanguineo = Console.ReadLine();
+            }
+            while (grupoSanguineo != "A" && grupoSanguineo != "B" && grupoSanguineo != "AB" && grupoSanguineo != "O")
+            {
+                Console.Write("+ Ingrese nuevamente un grupo sanguineo aceptado: ");
+                grupoSanguineo = Console.ReadLine();
+            }
+            
+            return char.Parse(grupoSanguineo);
         }
     }
 }

@@ -37,7 +37,6 @@ namespace CirculoDeSangre
         //Luego lo guardamos en una lista.
         public static void CalculoCategoria(string nacimiento, char enfermedad)
         {
-
             string cat="A";
             double monto = 0;
 

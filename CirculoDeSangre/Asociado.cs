@@ -17,11 +17,10 @@ namespace CirculoDeSangre
             new Asociado() {Nombre = "Magu", Apellido = "Gomez", DNI = 43235490, Nacimiento = "15-08-2001", Domicilio = "Iturraspe", Localidad = "San Francisco", Telefono = 3562421234, Mail = "mail", GrupoSanguineo = "AB",EnfermedadCronica = 'S', MedicacionNombre = "Hibuprofeno"},
             new Asociado() {Nombre = "Matias", Apellido = "Trivisono", DNI = 41567590, Nacimiento = "21-04-2001", Domicilio = "25 de Mayo", Localidad = "San Francisco", Telefono = 356242345310, Mail = "mail", GrupoSanguineo = "B"},
             new Asociado() {Nombre = "Juampi", Apellido = "Bessone", DNI = 42195240, Nacimiento = "14-12-2001", Domicilio = "San Justo", Localidad = "San Francisco", Telefono = 3564521456, Mail = "mail", GrupoSanguineo = "O"},
-            new Asociado() {Nombre = "Lautaro", Apellido = "Gomez", DNI = 41423510, Nacimiento = "12-10-1999", Domicilio = "Iturraspe Norte", Localidad = "San Francisco", Telefono = 3564521456, Mail = "mail", GrupoSanguineo = "A"},
+            new Asociado() {Nombre = "Lautaro", Apellido = "Gomez", DNI = 41423510, Nacimiento = "12-10-1999", Domicilio = "Iturraspe Norte", Localidad = "San Francisco", Telefono = 3564521456, Mail = "mail", GrupoSanguineo = "A", UltimaDonacion="15/05/2022", NumeroDonaciones = 1},
 
         };
         
-
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Nacimiento { get; set; }
@@ -33,16 +32,17 @@ namespace CirculoDeSangre
         public char EnfermedadCronica { get; set; } = 'n';
         public string MedicacionNombre { get; set; } = "No toma";
         public char MedicacionPerm { get; set; } = 'n';
+        public string UltimaDonacion { get; set; } = "Sin fecha";
+        public int NumeroDonaciones { get; set; } = 0;
 
         public static void Alta()
         {
             string nombre, apellido, nacimiento, domicilio, localidad, mail, grupoSanguineo, medicacionNombre = "", dniStr, telefonoStr, respuestaT;
             char respuesta, enfermedadCronica = 'n', medicacionPerm;
             long dni, telefono;
-            int i = 1;
             do
             {
-                Console.WriteLine("Alta N°{0}:", i++);
+                Console.WriteLine("Alta N°{0}:", listaAsociado.Count()+1);
                 Console.Write("- Ingrese su nombre (en caso de que tenga, agregar segundo nombre): ");
                 nombre = Console.ReadLine();
                 nombre = AsociadoValidators.NombreVal(nombre);
@@ -120,21 +120,12 @@ namespace CirculoDeSangre
                     Console.WriteLine("+ Desea ingresar un nuevo asociado? (S/n): ");
                     respuestaT = Console.ReadLine();
                     respuesta = GlobalValidator.ValidacionSn(respuestaT);
-
-                    i -= 1;
                 }
 
             } while (respuesta == 'S');
 
         }
-        /*public static void CargarAsociados()
-        {
-            Categoria cat = new Categoria();
-            for (int i = 0; i < listaAsociado.Count; i++)
-            {
-                cat.CalculoCategoria(listaAsociado[i].Nacimiento, listaAsociado[i].EnfermedadCronica, listaAsociado[i].MedicacionPerm);
-            }
-        }*/
+        
         public static void MostrarAsociados()
         {
             if (listaAsociado.Count == Cate.Count)
@@ -153,7 +144,7 @@ namespace CirculoDeSangre
         }
         public override string ToString()
         {
-            return String.Format("Asociado {0} {1}.\n- Dni: {2}.\n- Nacimiento: {9}.\n- Grupo Sanguineo: {10}.\n- Telefono: {3}.\n- Mail: {4}\n- Domicilio: {5}, {6}.\n- Enfermedad cronica: {7}.\n- Medicacion: {8}.", Nombre.ToUpper()[0] + Nombre.Substring(1), Apellido.ToUpper()[0] + Apellido.Substring(1), DNI, Telefono, Mail, Domicilio.ToUpper()[0] + Domicilio.Substring(1), Localidad.ToUpper()[0] + Localidad.Substring(1), EnfermedadCronica, MedicacionNombre.ToUpper()[0] + MedicacionNombre.Substring(1), Nacimiento, GrupoSanguineo);
+            return String.Format($"Asociado {Nombre.ToUpper()[0] + Nombre.Substring(1)} {Apellido.ToUpper()[0] + Apellido.Substring(1)}.\n- Dni: {DNI}.\n- Nacimiento: {Telefono}.\n- Grupo Sanguineo: {GrupoSanguineo}.\n- Telefono: {Nacimiento}.\n- Mail: {Mail}\n- Domicilio: {Domicilio.ToUpper()[0] + Domicilio.Substring(1)}, {Localidad.ToUpper()[0] + Localidad.Substring(1)}.\n- Enfermedad cronica: {EnfermedadCronica}.\n- Medicacion: {MedicacionNombre.ToUpper()[0] + MedicacionNombre.Substring(1)}.\n- Ultima donacion: {UltimaDonacion}.\n- Numero de donaciones: {CantDonantes}");
         }
     }
 }

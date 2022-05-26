@@ -10,48 +10,57 @@ namespace CirculoDeSangre
     {
         public static List<Peticion> Peticiones = new List<Peticion>()
         {
-            new Peticion() {FechaPeticion = "15/05/2022" , CantDonantes = 1 , FechaLimite = "18/05/2022"}
+            new Peticion() {FechaPeticion = "15/05/2022" , CantDonantes = 1 , FechaLimite = "18/05/2022", GrupoSanguineo = 'A'}
         };
         public string FechaPeticion { get; set; }
         public int CantDonantes { get; set; }
         public string FechaLimite { get; set; }
+        public char GrupoSanguineo { get; set; }
 
         public static void RegistrarPeticion() //Pensar otro nombre
         {
             int cantidad;
-            string fechaLimite, grupoSanguineo, cantidadStr, respStr;
+            string fechaLimite,fecha = DateTime.Now.ToString("dd/MM/yyyy"), cantidadStr, respStr, grupoStr;
+            char grupoSanguineo;
             char resp;
-            Console.WriteLine($"\n+ Peticion ID: 00{Peticiones.Count()}\tFecha: {DateTime.Now.ToString("dd/MM/yyyy")}");
+            Console.WriteLine($"\n+ Peticion ID: 00{Peticiones.Count()}\tFecha: {fecha}");
 
             Console.Write("- Ingrese el tipo de sangre necesario: ");
-            grupoSanguineo = Console.ReadLine();
-            grupoSanguineo = AsociadoValidators.GrupoSanguineoVal(grupoSanguineo);
+            grupoStr = Console.ReadLine();
+            grupoSanguineo = PeticionesValidator.GrupoSanguineoVal(grupoStr);
 
             Console.Write("- Ingrese la cantidad de donantes: ");
             cantidadStr = Console.ReadLine();
             cantidad = PeticionesValidator.CantidadVal(cantidadStr);
-            cantidad = PeticionesValidator.CantidadPetVal(cantidad, grupoSanguineo);
+            cantidad = PeticionesValidator.CantidadPetVal(cantidad, grupoStr, fecha);
 
             Console.Write($"- Ingrese una fecha limite no mayor a 30 dias de la fecha actual ({DateTime.Now.ToString("dd-MM-yyyy")}): ");
             fechaLimite = Console.ReadLine();
             fechaLimite = PeticionesValidator.FechaLimiteVal(fechaLimite);
-
-            Console.Write($"\n+ Esta seguro de registrar la nueva peticion N°00{Peticiones.Count()} cuya fecha limite es el {fechaLimite} con {cantidad} donantes? (S/n): ");
-            respStr = Console.ReadLine();
-            resp = GlobalValidator.ValidacionSn(respStr);
-
-            if (resp == 'S')
+            if (cantidad != 0)
             {
-
-                Console.WriteLine("\n+ El registro se ha realizado correctamente!");
-                Peticiones.Add(new Peticion { FechaPeticion = DateTime.Now.ToString("dd/MM/yyyy"), CantDonantes = cantidad, FechaLimite = fechaLimite });
-
+                Console.Write($"\n+ Esta seguro de registrar la nueva peticion N°00{Peticiones.Count()} cuya fecha limite es el {fechaLimite} con {cantidad} donantes? (S/n): ");
+                respStr = Console.ReadLine();
+                resp = GlobalValidator.ValidacionSn(respStr);
+                
+                if (resp == 'S')
+                {
+                    Console.WriteLine("\n+ El registro se ha realizado correctamente!");
+                    Peticiones.Add(new Peticion { FechaPeticion = DateTime.Now.ToString("dd/MM/yyyy"), CantDonantes = cantidad, FechaLimite = fechaLimite, GrupoSanguineo = grupoSanguineo });
+                }
+                else
+                {
+                    Console.WriteLine("+ Se ha cancelado el registro!\n");
+                    MenuServices.Volver();
+                }
             }
             else
             {
-                Console.WriteLine("+ Se ha cancelado el registro!\n");
+                Console.WriteLine("+ Se ha cancelado el registro debido a que no hay asociados!\n");
                 MenuServices.Volver();
             }
+
+
         }
 
         public static void MostrarPeticiones()
