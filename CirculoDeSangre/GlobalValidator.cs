@@ -13,12 +13,12 @@ namespace CirculoDeSangre
         {
             while (!Regex.Match(resp, @"^[A-Z]$|^[a-z]$").Success)
             {
-                Console.Write("+ Ingrese correctamente su respuesta: ");
+                Console.Write("[+] Ingrese correctamente su respuesta: ");
                 resp = Console.ReadLine();
             }
             while (char.Parse(resp) != 'S' && char.Parse(resp) != 'n')
             {
-                Console.Write("+ Ingrese correctamente su respuesta: ");
+                Console.Write("[+] Ingrese correctamente su respuesta: ");
                 resp = Console.ReadLine();
             }
 

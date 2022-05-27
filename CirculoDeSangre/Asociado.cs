@@ -17,7 +17,7 @@ namespace CirculoDeSangre
             new Asociado() {Nombre = "Magu", Apellido = "Gomez", DNI = 43235490, Nacimiento = "15-08-2001", Domicilio = "Iturraspe", Localidad = "San Francisco", Telefono = 3562421234, Mail = "mail", GrupoSanguineo = "AB",EnfermedadCronica = 'S', MedicacionNombre = "Hibuprofeno"},
             new Asociado() {Nombre = "Matias", Apellido = "Trivisono", DNI = 41567590, Nacimiento = "21-04-2001", Domicilio = "25 de Mayo", Localidad = "San Francisco", Telefono = 356242345310, Mail = "mail", GrupoSanguineo = "B"},
             new Asociado() {Nombre = "Juampi", Apellido = "Bessone", DNI = 42195240, Nacimiento = "14-12-2001", Domicilio = "San Justo", Localidad = "San Francisco", Telefono = 3564521456, Mail = "mail", GrupoSanguineo = "O"},
-            new Asociado() {Nombre = "Lautaro", Apellido = "Gomez", DNI = 41423510, Nacimiento = "12-10-1999", Domicilio = "Iturraspe Norte", Localidad = "San Francisco", Telefono = 3564521456, Mail = "mail", GrupoSanguineo = "A", UltimaDonacion="15/05/2022", NumeroDonaciones = 1},
+            new Asociado() {Nombre = "Lautaro", Apellido = "Gomez", DNI = 41423510, Nacimiento = "12-10-1999", Domicilio = "Iturraspe Norte", Localidad = "San Francisco", Telefono = 3564521456, Mail = "mail", GrupoSanguineo = "A", UltimaDonacion="15/05/2022", NumeroDonaciones = 2},
 
         };
         
@@ -43,53 +43,52 @@ namespace CirculoDeSangre
             do
             {
                 Console.WriteLine("Alta N°{0}:", listaAsociado.Count()+1);
-                Console.Write("- Ingrese su nombre (en caso de que tenga, agregar segundo nombre): ");
+                Console.Write("[-] Ingrese su nombre (en caso de que tenga, agregar segundo nombre): ");
                 nombre = Console.ReadLine();
                 nombre = AsociadoValidators.NombreVal(nombre);
 
-                Console.Write("- Ingrese su apellido (en caso de que tenga, agregar segundo apellido): ");
+                Console.Write("[-] Ingrese su apellido (en caso de que tenga, agregar segundo apellido): ");
                 apellido = Console.ReadLine();
                 apellido = AsociadoValidators.ApellidoVal(apellido);
 
-                Console.Write("- Ingrese su numero de documento: ");
+                Console.Write("[-] Ingrese su numero de documento: ");
                 dniStr = Console.ReadLine();
                 dni = AsociadoValidators.DniVal(dniStr);
 
-                Console.Write("- Ingrese su fecha de nacimiento (dd-mm-aaaa): ");
+                Console.Write("[-] Ingrese su fecha de nacimiento (dd-mm-aaaa): ");
                 string nacimiento1 = Console.ReadLine();
                 nacimiento = AsociadoValidators.ValidacionFecha(nacimiento1);
 
-                Console.Write("- Ingrese domicilio (calle y numero): ");
+                Console.Write("[-] Ingrese domicilio (calle y numero): ");
                 domicilio = Console.ReadLine();
                 domicilio = AsociadoValidators.DomicilioVal(domicilio);
                 
-                Console.Write("- Ingrese localidad: ");
+                Console.Write("[-] Ingrese localidad: ");
                 localidad = Console.ReadLine();
                 localidad = AsociadoValidators.LocalidadVal(localidad);
 
-                Console.Write("- Ingrese su numero de telefono (caracteristica sin cero y numero sin 15): ");
+                Console.Write("[-] Ingrese su numero de telefono (caracteristica sin cero y numero sin 15): ");
                 telefonoStr = Console.ReadLine();
                 telefono = AsociadoValidators.TelefonoVal(telefonoStr);
 
-                Console.Write("- Ingrese su mail (prueba@example.com): ");
+                Console.Write("[-] Ingrese su mail (prueba@example.com): ");
                 mail = Console.ReadLine();
                 mail = AsociadoValidators.MailVal(mail);
 
-                Console.Write("- Cuenta con una enfermedad cronica? (S/n): ");
+                Console.Write("[-] Cuenta con una enfermedad cronica? (S/n): ");
                 respuestaT = Console.ReadLine();
                 enfermedadCronica = GlobalValidator.ValidacionSn(respuestaT);
 
-                Console.Write("- Toma medicacion de forma permanente? (S/n): ");
+                Console.Write("[-] Toma medicacion de forma permanente? (S/n): ");
                 respuestaT = Console.ReadLine();
                 medicacionPerm = GlobalValidator.ValidacionSn(respuestaT);
                 medicacionNombre = AsociadoValidators.MedicacionNombreSet(medicacionPerm);
-                
 
-                Console.Write("- Ingrese grupo sanguineo (A, B, AB, O): ");
+                Console.Write("[-] Ingrese grupo sanguineo (A, B, AB, O): ");
                 grupoSanguineo = Console.ReadLine();
                 grupoSanguineo = AsociadoValidators.GrupoSanguineoVal(grupoSanguineo);
 
-                Console.Write("\n+ El asociado ingresado, acepta los terminos del circulo? (S/n): ");
+                Console.Write("\n[+] El asociado ingresado, acepta los terminos del circulo? (S/n): ");
                 respuestaT = Console.ReadLine();
                 respuesta = GlobalValidator.ValidacionSn(respuestaT);
 
@@ -97,8 +96,8 @@ namespace CirculoDeSangre
                 {
                     listaAsociado.Add(new Asociado() { Nombre = nombre, Apellido = apellido, DNI = dni, Nacimiento = nacimiento, Domicilio = domicilio, Localidad = localidad, Telefono = telefono, Mail = mail, EnfermedadCronica = enfermedadCronica, MedicacionNombre = medicacionNombre, MedicacionPerm = medicacionPerm, GrupoSanguineo = grupoSanguineo });
                     Categoria.CalculoCategoria(nacimiento, enfermedadCronica);
-                    Console.WriteLine("\n+ El asociado ha sido dado de alta!");
-                    Console.Write("+ Desea ingresar un nuevo asociado? (S/n): ");
+                    Console.WriteLine("\n[!] El asociado ha sido dado de alta!");
+                    Console.Write("[+] Desea ingresar un nuevo asociado? (S/n): ");
                     respuestaT = Console.ReadLine();
                     respuesta = GlobalValidator.ValidacionSn(respuestaT);
                     
@@ -116,8 +115,8 @@ namespace CirculoDeSangre
                 else
                 {
                     Console.Clear();
-                    Console.Write("+ El asociado no ha sido dado de alta.");
-                    Console.WriteLine("+ Desea ingresar un nuevo asociado? (S/n): ");
+                    Console.Write("[!] El asociado no ha sido dado de alta.");
+                    Console.WriteLine("[+] Desea ingresar un nuevo asociado? (S/n): ");
                     respuestaT = Console.ReadLine();
                     respuesta = GlobalValidator.ValidacionSn(respuestaT);
                 }
@@ -133,7 +132,7 @@ namespace CirculoDeSangre
                 for (int i = 0; i < listaAsociado.Count; i++)
                 {
                     Console.WriteLine("\n{0}", listaAsociado[i]);
-                    Console.WriteLine("+ Se le ha asignado a este asociado la categoria de: {0}.", Cate[i].Tipo);
+                    Console.WriteLine("[+] Se le ha asignado a este asociado la categoria de: {0}.", Cate[i].Tipo);
                 }
             }
             else

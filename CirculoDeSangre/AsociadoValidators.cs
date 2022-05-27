@@ -16,7 +16,7 @@ namespace CirculoDeSangre
             //Y considerando que la persona puede tener HASTA 2 nombres.
             while (!Regex.Match(nombre, @"^[A-Za-z]{3,10}$|^[A-Za-z]{3,10}\s[A-Za-z]{3,10}$").Success) 
             {
-                Console.Write("+ Ingrese nuevamente el nombre: ");
+                Console.Write("[!] Ingrese nuevamente el nombre: ");
                 nombre = Console.ReadLine();
             }
 
@@ -29,7 +29,7 @@ namespace CirculoDeSangre
             //Y considerando que la persona puede tener HASTA 2 apellidos.
             while (!Regex.Match(apellido, @"^[A-Za-z]{2,10}$|^[A-Za-z]{2,10}\s[A-Za-z]{2,10}$").Success)
             {
-                Console.Write("+ Ingrese nuevamente su apellido: ");
+                Console.Write("[+] Ingrese nuevamente su apellido: ");
                 apellido = Console.ReadLine();
             }
 
@@ -43,7 +43,7 @@ namespace CirculoDeSangre
             //El dni ingresa como string para validar su formato. Este deben ser 8 NUMEROS.
             while (!Regex.Match(dniStr, @"^\d{8}$").Success)
             {
-                Console.Write("+ Ingrese nuevamente su numero de documento: ");
+                Console.Write("[+] Ingrese nuevamente su numero de documento: ");
                 dniStr = Console.ReadLine();
             }
 
@@ -53,7 +53,7 @@ namespace CirculoDeSangre
             //Valida que el numero de documento ingresado no coincida con el de un asociado ya registrado.
             while (VerificacionDni(dni) == true) 
             {
-                Console.Write("+ Ingrese nuevamente su numero de documento: ");
+                Console.Write("[+] Ingrese nuevamente su numero de documento: ");
                 dni = long.Parse(Console.ReadLine());
                 VerificacionDni(dni);
             }
@@ -71,7 +71,7 @@ namespace CirculoDeSangre
             {
                 while (!Regex.Match(nacimiento, @"^\d{2}\-\d{2}\-\d{4}$").Success)
                 {
-                    Console.Write("+ Ingrese correctamente la fecha de nacimiento: ");
+                    Console.Write("[+] Ingrese correctamente la fecha de nacimiento: ");
                     nacimiento = Console.ReadLine();
                 }
 
@@ -83,21 +83,21 @@ namespace CirculoDeSangre
                 
                 if (dia < 01 || dia > 31)
                 {
-                    Console.Write("+ El dia esta incorrecto, ingrese nuevamente su fecha (dd-mm-aaaa): ");
+                    Console.Write("[+] El dia esta incorrecto, ingrese nuevamente su fecha (dd-mm-aaaa): ");
                     Array.Clear(naci, 0, naci.Length);
                     nacimiento = Console.ReadLine();
 
                 }
                 else if (mes < 01 || mes > 12)
                 {
-                    Console.Write("+ El mes esta incorrecto, ingrese nuevamente su fecha (dd-mm-aaaa): ");
+                    Console.Write("[+] El mes esta incorrecto, ingrese nuevamente su fecha (dd-mm-aaaa): ");
                     Array.Clear(naci, 0, naci.Length);
                     nacimiento = Console.ReadLine();
 
                 }
                 else if (ano <= DateTime.Today.Year - 120 || ano > DateTime.Today.Year)
                 {
-                    Console.Write("+ El Año esta incorrecto, ingrese nuevamente su fecha (dd-mm-aaaa): ");
+                    Console.Write("[+] El Año esta incorrecto, ingrese nuevamente su fecha (dd-mm-aaaa): ");
                     Array.Clear(naci, 0, naci.Length);
                     nacimiento = Console.ReadLine();
 
@@ -117,7 +117,7 @@ namespace CirculoDeSangre
             //Ademas de que este deben ser letras y numeros respectivamente, cuyas letras debe tener de 3 a 15 caracteres con no mas de un espacio.
             while (!Regex.Match(domicilio, @"^[a-zA-Z]{3,15}\s[0-9]+$|^[a-zA-Z]{3,15}\s[a-zA-Z]{3,15}\s[0-9]+$").Success)
             {
-                Console.Write("+ Ingrese nuevamente el domicilio: ");
+                Console.Write("[+] Ingrese nuevamente el domicilio: ");
                 domicilio = Console.ReadLine();
             }
 
@@ -129,7 +129,7 @@ namespace CirculoDeSangre
             //La localidad deben ser letras de 3 a 15 caracteres con no mas de un espacio.
             while (!Regex.Match(localidad, @"^[a-zA-Z]{3,15}$|^[a-zA-Z]{3,15}\s[a-zA-Z]{3,15}$").Success) // Validacion de formato.
             {
-                Console.Write("+ Ingrese nuevamente su localidad: ");
+                Console.Write("[+] Ingrese nuevamente su localidad: ");
                 localidad = Console.ReadLine();
             }
 
@@ -142,7 +142,7 @@ namespace CirculoDeSangre
             //Consideramos que el telefono es argentino.
             while (!Regex.Match(telefonoStr, @"^\d{10}$").Success)
             {
-                Console.Write("+ Ingrese nuevamente su numero de telefono correctamente: ");
+                Console.Write("[+] Ingrese nuevamente su numero de telefono correctamente: ");
                 telefonoStr = Console.ReadLine();
             }
 
@@ -156,7 +156,7 @@ namespace CirculoDeSangre
         {
             while (!Regex.Match(mail, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$").Success) 
             {
-                Console.Write("+ Ingrese nuevamente su mail: ");
+                Console.Write("[+] Ingrese nuevamente su mail: ");
                 mail = Console.ReadLine();
             }
 
@@ -169,13 +169,13 @@ namespace CirculoDeSangre
 
             if (medicacionPerm == 'S')
             {
-                Console.Write("+ Ingrese la medicacion que toma: ");
+                Console.Write("[+] Ingrese la medicacion que toma: ");
                 medicacionNombre = Console.ReadLine();
 
                 //Para la validacion consideramos que el nombre del medicamento son solo letras de 3 a 15 caracteres con maximo un espacio.
                 while (!Regex.Match(medicacionNombre, @"^[a-zA-Z]{3,15}$|^[a-zA-Z]{3,15}\s[a-zA-Z]{3,15}$").Success) 
                 {
-                    Console.Write("+ Ingrese nuevamente el nombre de la medicacion: ");
+                    Console.Write("[+] Ingrese nuevamente el nombre de la medicacion: ");
                     medicacionNombre = Console.ReadLine();
                 }
             }
@@ -188,12 +188,12 @@ namespace CirculoDeSangre
         {
             while (!Regex.Match(grupoSanguineo, @"^[A-Z]{1}$|^[A-Z]{2}$").Success) // Validacion de formato.
             {
-                Console.Write("+ Ingrese nuevamente su grupo sanguineo: ");
+                Console.Write("[+] Ingrese nuevamente su grupo sanguineo: ");
                 grupoSanguineo = Console.ReadLine();
             }
             while (grupoSanguineo != "A" && grupoSanguineo != "B" && grupoSanguineo != "AB" && grupoSanguineo != "O")
             {
-                Console.Write("+ Ingrese nuevamente un grupo sanguineo aceptado: ");
+                Console.Write("[+] Ingrese nuevamente un grupo sanguineo aceptado: ");
                 grupoSanguineo = Console.ReadLine();
             }
 
@@ -206,7 +206,7 @@ namespace CirculoDeSangre
             {
                 if (dni == Asociado.listaAsociado[i].DNI)
                 {
-                    Console.WriteLine("+ El dni ingresado coincide con el del asociado/a {0} {1}!", Asociado.listaAsociado[i].Nombre, Asociado.listaAsociado[i].Apellido);
+                    Console.WriteLine("[!] El dni ingresado coincide con el del asociado/a {0} {1}!", Asociado.listaAsociado[i].Nombre, Asociado.listaAsociado[i].Apellido);
                     return true;
                 }
             }

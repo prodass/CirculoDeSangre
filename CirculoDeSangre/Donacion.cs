@@ -22,7 +22,7 @@ namespace CirculoDeSangre
             {
                 if(Categoria.Cate[i].Tipo == "Activo")
                 {
-                    Console.WriteLine($"+ Asociado ID:{i}, {Asociado.listaAsociado[i].Nombre} {Asociado.listaAsociado[i].Apellido} - DNI: {Asociado.listaAsociado[i].DNI} - grupo sanguineo: {Asociado.listaAsociado[i].GrupoSanguineo} - Ultima donacion: {Asociado.listaAsociado[i].UltimaDonacion} - Numero de donaciones: {Asociado.listaAsociado[i].NumeroDonaciones}");
+                    Console.WriteLine($"- Asociado ID:{i}, {Asociado.listaAsociado[i].Nombre} {Asociado.listaAsociado[i].Apellido} - DNI: {Asociado.listaAsociado[i].DNI} - grupo sanguineo: {Asociado.listaAsociado[i].GrupoSanguineo} - Ultima donacion: {Asociado.listaAsociado[i].UltimaDonacion} - Numero de donaciones: {Asociado.listaAsociado[i].NumeroDonaciones}");
                 }
             }
             Console.WriteLine("-------------------------------\n");

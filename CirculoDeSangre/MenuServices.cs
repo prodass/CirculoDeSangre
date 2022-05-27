@@ -15,14 +15,14 @@ namespace CirculoDeSangre
             int ingreso;
             Console.Clear();
             Console.WriteLine("\t- Circulo de Sangre -");
+            Console.WriteLine("\n* Se recomienda iniciar en pantalla completa *");
             Console.WriteLine("\n--------------------------");
             Console.WriteLine("- 1. Alta de Asociado.");
             Console.WriteLine("- 2. Lista de Asociados.");
             Console.WriteLine("- 3. Gestionar Peticion.");
             Console.WriteLine("- 0. Salir.");
             Console.WriteLine("--------------------------");
-
-            Console.Write("+ Ingrese su respuesta: ");
+            Console.Write("[+] Ingrese su respuesta: ");
             valor = Console.ReadLine();
             ingreso = validacion.ValidacionMenu(valor);
 
@@ -57,7 +57,7 @@ namespace CirculoDeSangre
                     Console.WriteLine("- 0. Volver.");
                     Console.WriteLine("--------------------------");
 
-                    Console.Write("+ Ingrese su respuesta: ");
+                    Console.Write("[+] Ingrese su respuesta: ");
                     valor = Console.ReadLine();
                     ingreso = validacion.ValidacionMenu(valor);
                     switch (ingreso)
@@ -94,7 +94,7 @@ namespace CirculoDeSangre
 
                     break;
                 case 0:
-                    Console.Write("Usted ha salido!");
+                    Console.Write("[!] Usted ha salido.");
                     break;
                 default:
                     break;
@@ -106,13 +106,13 @@ namespace CirculoDeSangre
             string respuestaT;
             char respuesta;
 
-            Console.Write("+ Desea regresar al menu? (S/n): ");
+            Console.Write("[+] Desea regresar al menu? (S/n): ");
             respuestaT = Console.ReadLine();
             respuesta = GlobalValidator.ValidacionSn(respuestaT);
 
             if (respuesta == 'S') { Menu(); }
             Console.Clear();
-            Console.Write("+ Usted ha salido!");
+            Console.Write("[!] Usted ha salido.");
         }
 
     }
